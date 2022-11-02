@@ -1,0 +1,10 @@
+{
+    "name": "ledragonparesseux/app",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/",
+            "Core\\": "core/"
+        }
+    },
+    "require": {}
+}

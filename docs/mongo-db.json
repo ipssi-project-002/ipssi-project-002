@@ -1,0 +1,350 @@
+{
+    "users": [
+        {
+            "id": "b8d1abc6-3f94-4d32-a6ea-93ee9881cd1f",
+            "username": "thomas.leveille",
+            "name": {
+                "first": "Thomas",
+                "last": "Léveillé"
+            },
+            "email": {
+                "address": "t.leveille@ecole-ipssi.net",
+                "verifications": [
+                    {
+                        "requestDate": "2022-11-01T21:12:54.000Z",
+                        "token": "pk78-r874-1ghh-ty77",
+                        "expirationDate": "2022-11-01T21:27:54.000Z",
+                        "hasBeenCompleted": true
+                    }
+                ]
+            },
+            "phoneNumber": "+33652571013",
+            "password": {
+                "hash": "b109f3bbbc244eb82441917ed06d618b9008dd09b3befd1b5e07394c706a8bb980b1d7785e5976ec049b46df5f1326af5a2ea6d103fd07c95385ffab0cacbc86",
+                "resets": [
+                    {
+                        "requestDate": "2022-11-02T12:01:28.000Z",
+                        "token": "qj41-f45d-3kkl-k6h4",
+                        "expirationDate": "2022-11-02T12:16:28.000Z",
+                        "hasBeenCompleted": true
+                    }
+                ]
+            },
+            "accountType": "customer",
+            "meta": {
+                "profilePicture": {
+                    "id": "6df2bcbc-0bd3-4944-ad41-b776bb417d56"
+                },
+                "registrationDate": "2022-11-01T21:12:54.000Z",
+                "logins": [
+                    {
+                        "date": "2022-11-01T21:12:54.000Z"
+                    },
+                    {
+                        "date": "2022-11-02T12:01:28.000Z"
+                    }
+                ]
+            },
+            "preferences": {
+                "theme": "system",
+                "notifications": {
+                    "newsletter": [ "email" ],
+                    "bookingStatusChanged": [ "email", "inapp" ],
+                    "orderStatusChanged": [ "email", "inapp" ],
+                    "reviewStatusChanged": [ "email" ],
+                    "bookingReminder": [ "email" ]
+                }
+            },
+            "shippingAddresses": [
+                {
+                    "label": "Domicile",
+                    "number": "4",
+                    "street": "Rue de la Poterie",
+                    "additional": null,
+                    "zipCode": "77970",
+                    "city": "Jouy-le-Châtel",
+                    "country": "France",
+                    "tags": [ "home", "default" ]
+                },
+                {
+                    "label": "Bureau",
+                    "number": "8",
+                    "street": "Rue Laugier",
+                    "additional": null,
+                    "zipCode": "75017",
+                    "city": "Paris",
+                    "country": "France",
+                    "tags": [ "work" ]
+                }
+            ],
+            "shoppingCart": {
+                "items": [
+                    {
+                        "dish": {
+                            "reference": "p1pfr"
+                        },
+                        "quantity": 1,
+                        "meta": {
+                            "addDate": "2022-11-01T21:12:54.000Z"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "id": "012b67bc-95ea-428b-bbd7-c95fd0438952",
+            "username": "julien.bertrand",
+            "name": {
+                "first": "Julien",
+                "last": "Bertrand"
+            },
+            "email": {
+                "address": "julien.bertrand@ledragonparesseux.fr",
+                "verifications": [
+                    {
+                        "requestDate": "2022-11-01T21:12:54.000Z",
+                        "token": "64hg-dq64-lfqd-hg56",
+                        "expirationDate": "2022-11-01T21:27:54.000Z",
+                        "hasBeenCompleted": true
+                    }
+                ]
+            },
+            "phoneNumber": "+33612247569",
+            "password": {
+                "hash": "b109f3bbbc244eb82441917ed06d618b9008dd09b3befd1b5e07394c706a8bb980b1d7785e5976ec049b46df5f1326af5a2ea6d103fd07c95385ffab0cacbc86",
+                "resets": [
+                    {
+                        "requestDate": "2022-11-02T12:01:28.000Z",
+                        "token": "qj41-f45d-3kkl-k6h4",
+                        "expirationDate": "2022-11-02T12:16:28.000Z",
+                        "hasBeenCompleted": true
+                    }
+                ]
+            },
+            "accountType": "admin",
+            "meta": {
+                "registrationDate": "2022-11-01T21:12:54.000Z",
+                "adminAccountCreatedBy": {
+                    "id": "..."
+                },
+                "logins": [
+                    {
+                        "date": "2022-11-01T21:12:54.000Z"
+                    },
+                    {
+                        "date": "2022-11-02T12:01:28.000Z"
+                    }
+                ]
+            },
+            "preferences": {
+                "theme": "system",
+                "notifications": {
+                    "newsletter": [ "email" ],
+                    "newBooking": [ "email", "inapp" ],
+                    "newOrder": [ "email", "inapp" ],
+                    "newReview": [ "email" ]
+                }
+            },
+            "shippingAddresses": [],
+            "shoppingCart": {
+                "items": []
+            }
+        }
+    ],
+    "bookings": [
+        {
+            "reference": "r22lx-u30-j1",
+            "booker": {
+                "id": "b8d1abc6-3f94-4d32-a6ea-93ee9881cd1f"
+            },
+            "dates": {
+                "arrival": "2022-12-24T21:30:00.000Z",
+                "departure": "2022-12-24T23:00:00.000Z"
+            },
+            "places": 4,
+            "history": [
+                {
+                    "date": "2022-11-02T13:31:30.000Z",
+                    "status": "pending",
+                    "author": {
+                        "id": "b8d1abc6-3f94-4d32-a6ea-93ee9881cd1f"
+                    },
+                    "comment": "Bonjour,\nj’aimerais réserver une table pour 4 personnes pour le réveillon de Noël à 21h30.\nMerci d’avance."
+                },
+                {
+                    "date": "2022-11-02T13:33:24.000Z",
+                    "status": "confirmed",
+                    "author": {
+                        "id": "012b67bc-95ea-428b-bbd7-c95fd0438952"
+                    },
+                    "comment": "Bonjour,\nVotre réservation a bien été prise en compte.\nNous vous attendons avec plaisir le 24 décembre !"
+                }
+            ]
+        }
+    ],
+    "dishes": [
+        {
+            "reference": "p1pfr",
+            "slug": "salade-cesar",
+            "name": "Salade César",
+            "category": "starter",
+            "price": 9.5,
+            "description": "Salade verte, croûtons, parmesan, filet de poulet, sauce César",
+            "tags": [ "healthy", "greenery", "cheese", "meat/chicken" ],
+            "images": [
+                {
+                    "id": "..."
+                },
+                {
+                    "id": "..."
+                },
+                {
+                    "id": "..."
+                }
+            ],
+            "history": [
+                {
+                    "date": "2022-11-02T13:31:30.000Z",
+                    "status": "available",
+                    "author": {
+                        "id": "012b67bc-95ea-428b-bbd7-c95fd0438952"
+                    },
+                    "comment": "Ajout de la salade César au menu."
+                }
+            ]
+        }
+    ],
+    "orders": [
+        {
+            "reference": "c22kb-n47-a011",
+            "customer": {
+                "id": "b8d1abc6-3f94-4d32-a6ea-93ee9881cd1f"
+            },
+            "type": "delivery",
+            "deliveryAddress": {
+                "number": "4",
+                "street": "Rue de la Poterie",
+                "additional": null,
+                "zipCode": "77970",
+                "city": "Jouy-le-Châtel",
+                "country": "France",
+                "tags": [ "home", "default" ]
+            },
+            "items": [
+                {
+                    "dish": {
+                        "reference": "p1pfr"
+                    },
+                    "quantity": 1
+                }
+            ],
+            "history": [
+                {
+                    "date": "2022-11-02T13:31:30.000Z",
+                    "status": "awaiting-payment",
+                    "author": {
+                        "id": "b8d1abc6-3f94-4d32-a6ea-93ee9881cd1f"
+                    },
+                    "comment": null
+                },
+                {
+                    "date": "2022-11-02T13:33:24.000Z",
+                    "status": "pending",
+                    "author": {
+                        "id": "b8d1abc6-3f94-4d32-a6ea-93ee9881cd1f"
+                    },
+                    "comment": null
+                },
+                {
+                    "date": "2022-11-02T13:33:27.000Z",
+                    "status": "in-preparation",
+                    "author": {
+                        "id": "012b67bc-95ea-428b-bbd7-c95fd0438952"
+                    },
+                    "comment": null
+                },
+                {
+                    "date": "2022-11-02T13:43:01.000Z",
+                    "status": "in-delivery",
+                    "author": {
+                        "id": "012b67bc-95ea-428b-bbd7-c95fd0438952"
+                    },
+                    "comment": null
+                },
+                {
+                    "date": "2022-11-02T13:46:51.000Z",
+                    "status": "delivered",
+                    "author": {
+                        "id": "012b67bc-95ea-428b-bbd7-c95fd0438952"
+                    },
+                    "comment": null
+                }
+            ]
+        }
+    ],
+    "reviews": [
+        {
+            "reference": "e22kb-o12-k700",
+            "author": {
+                "id": "b8d1abc6-3f94-4d32-a6ea-93ee9881cd1f"
+            },
+            "subject": {
+                "dish": {
+                    "reference": "p1pfr"
+                },
+                "restaurant": false
+            },
+            "context": {
+                "order": {
+                    "reference": "c22kb-n47-a011"
+                },
+                "booking": null
+            },
+            "rating": 4.5,
+            "comment": "Très bon repas, je recommande !",
+            "tags": [ "positive", "recommended" ],
+            "pictures": [
+                {
+                    "id": "..."
+                },
+                {
+                    "id": "..."
+                }
+            ],
+            "history": [
+                {
+                    "date": "2022-11-02T13:31:30.000Z",
+                    "status": "pending",
+                    "author": {
+                        "id": "b8d1abc6-3f94-4d32-a6ea-93ee9881cd1f"
+                    },
+                    "comment": null
+                },
+                {
+                    "date": "2022-11-02T13:33:24.000Z",
+                    "status": "published",
+                    "author": {
+                        "id": "012b67bc-95ea-428b-bbd7-c95fd0438952"
+                    },
+                    "comment": null
+                }
+            ]
+        }
+    ],
+    "pictures": [
+        {
+            "id": "6df2bcbc-0bd3-4944-ad41-b776bb417d56",
+            "uri": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxISEhUSEhIVFRUVFRUVFRUVFRUVFRUVFRUVFRUWFhUVFRUYHSggGBolHRUVITEhJSkrLi4uFx8zODMtNygtLisBCg",
+            "title": "Image de profil de thomas.leveille",
+            "meta": {
+                "description": "Photographie portrait d’un homme en costume gris",
+                "credits": "Thomas Léveillé",
+                "uploader": {
+                    "id": "b8d1abc6-3f94-4d32-a6ea-93ee9881cd1f"
+                },
+                "uploadDate": "2022-11-02T13:31:30.000Z"
+            },
+            "tags": [ "profile-picture", "private" ]
+        }
+    ]
+}

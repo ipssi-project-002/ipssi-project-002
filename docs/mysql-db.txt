@@ -1,0 +1,158 @@
+users
+id - varchar(36) - primary key // uuid
+username - varchar(32) - unique // for 'booker' account type, this is generated from name and email address
+firstName - varchar(256)
+lastName - varchar(256)
+emailAddress - varchar(320) - unique
+phoneNumber - varchar(50) - unique, nullable
+passwordHash - varchar(512) - nullable
+accountType - varchar(32) - default 'customer' // 'booker', 'customer', 'admin'
+profilePictureId - varchar(36) - nullable -> pictures.id
+
+
+userPreferences
+(
+    userId - varchar(36) -> users.id
+    key - varchar(256) // e.g. 'receiveNewsletter', 'theme', 'shippingAddresses'
+) - primary key
+value - varchar(2048)
+
+
+emailVerifications
+(
+    emailAddress - varchar(320)
+    requestDate - datetime
+) - primary key
+token - varchar(1024) - unique
+expirationDate - datetime
+hasBeenCompleted - tinyint(1) - default 0
+
+
+passwordResets
+(
+    customerId - varchar(36) -> users.id
+    requestDate - datetime
+) - primary key
+token - varchar(1024) - unique
+expirationDate - datetime
+hasBeenCompleted - tinyint(1) - default 0
+
+
+bookings
+reference - varchar(16) - primary key // 'R...'
+bookerId - varchar(36) -> users.id
+arrivalDate - datetime
+departureDate - datetime
+places - int(11)
+
+
+bookingChanges
+(
+    bookingReference - varchar(16) -> bookings.reference
+    changeDate - datetime
+) - primary key
+status - varchar(32) // 'pending', 'confirmed', 'rejected', 'cancelled'
+authorId - varchar(36) -> users.id
+comment - varchar(2048) - nullable
+
+
+dishes
+reference - varchar(5) - primary key // 'P...'
+slug - varchar(512) - unique
+name - varchar(512)
+category - varchar(32) // 'starter', 'main', 'dessert', 'drink', 'formula'
+price - decimal
+description - varchar(2048)
+tags - varchar(2048) - nullable // comma-separated list of tags used for filtering, e.g. 'vegetarian, vegan, gluten-free'
+pictureGroupId - varchar(36) -> pictureGroups.id
+
+
+dishChanges
+(
+    dishReference - varchar(4) -> dishes.reference
+    changeDate - datetime
+) - primary key
+status - varchar(32) // 'available', 'out-of-stock', 'removed'
+authorId - varchar(36) -> users.id
+comment - varchar(2048) - nullable
+
+
+shoppingCart
+(
+    customerId - varchar(36) -> users.id
+    dishReference - varchar(4) -> dishes.reference
+) - primary key
+quantity - int(11) - default 1
+
+
+orders
+reference - varchar(16) - primary key // 'C...'
+customerId - varchar(36) -> users.id
+type - varchar(32) // 'delivery', 'takeout'
+
+
+orderChanges
+(
+    orderReference - varchar(16) -> orders.reference
+    changeDate - datetime
+) - primary key
+status - varchar(32) // 'awaiting-payment', 'pending', 'in-preparation', 'ready', 'in-delivery', 'delivered', 'rejected', 'cancelled'
+authorId - varchar(36) -> users.id
+comment - varchar(2048) - nullable
+
+
+orderItems
+(
+    orderReference - varchar(16) -> orders.reference
+    dishReference - varchar(4) -> dishes.reference
+) - primary key
+quantity - int(11) - default 1
+
+
+orderDeliveryAddresses
+orderReference - varchar(16) -> orders.reference - primary key
+number - varchar(16)
+street - varchar(256)
+additional - varchar(256) - nullable
+postcode - varchar(16)
+city - varchar(256)
+country - varchar(256)
+
+
+pictures
+id - varchar(36) - primary key // uuid
+uri - varchar(4096)
+title - varchar(512)
+description - varchar(2048)
+credits - varchar(2048)
+uploaderId - varchar(36) -> users.id
+uploadDate - datetime
+
+
+pictureGroups
+(
+    id - varchar(36) // uuid
+    pictureId - varchar(36) -> pictures.id
+) - primary key
+
+
+reviews
+reference - varchar(16) - primary key // 'E...'
+authorId - varchar(36) -> users.id
+subject - varchar(32) // 'restaurant', 'dish', 'formula'
+subjectReference - varchar(16) - nullable // reference of the subject dish or formula
+contextReference - varchar(16) - nullable // reference of the reviewer’s order or booking
+rating - decimal
+comment - varchar(2048)
+tags - varchar(2048) - nullable // comma-separated list of tags used for filtering
+pictureGroupId - varchar(36) - nullable -> pictureGroups.id
+
+
+reviewChanges
+(
+    reviewReference - varchar(16) -> reviews.reference
+    changeDate - datetime
+) - primary key
+status - varchar(32) // 'pending', 'published', 'rejected', 'removed'
+authorId - varchar(36) -> users.id
+comment - varchar(2048) - nullable
