@@ -11,6 +11,7 @@
         "symfony/deprecation-contracts": "3.0.2",
         "guzzlehttp/guzzle": "^7",
         "vlucas/phpdotenv": "^5.5",
-        "phpmailer/phpmailer": "^6.6"
+        "phpmailer/phpmailer": "^6.6",
+        "firebase/php-jwt": "^6.3"
     }
 }
