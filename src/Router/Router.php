@@ -34,7 +34,7 @@ class Router {
         return null;
     }
 
-    public function route() {
+    public function route(): void {
         $route = $this->getRoute();
         if ($route) {
             $method = $route['method'];

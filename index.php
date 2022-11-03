@@ -5,6 +5,8 @@ define('TEMPLATE_PATH', ROOT . '/src/Template');
 
 require_once ROOT . '/vendor/autoload.php';
 
+use App\Router\Router;
+
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->safeLoad();
 
@@ -52,6 +54,6 @@ $routes = [
     ]
 ];
 
-(new \App\Router\Router($routes))->route();
+(new Router($routes))->route();
 
 ?>
