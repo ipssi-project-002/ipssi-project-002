@@ -3,52 +3,14 @@
 namespace App\Router;
 
 class Router {
-    private const ROUTES = [
-        [
-            '_GET' => [
-                'page' => 'dish',
-                'action' => 'view',
-                'ref' => '.*'
-            ],
-            'controller' => \App\Controller\DishController::class,
-            'method' => 'view'
-        ],
-        [
-            '_GET' => [
-                'page' => 'dish',
-                'action' => 'edit',
-                'ref' => '.*'
-            ],
-            'controller' => \App\Controller\DishController::class,
-            'method' => 'edit'
-        ],
-        [
-            '_GET' => [
-                'page' => 'dish',
-                'action' => 'add'
-            ],
-            'controller' => \App\Controller\DishController::class,
-            'method' => 'add'
-        ],
-        [
-            '_GET' => [
-                'page' => 'dish',
-                'action' => 'delete',
-                'ref' => '.*'
-            ],
-            'controller' => \App\Controller\DishController::class,
-            'method' => 'delete'
-        ],
-        // fallback route
-        [
-            '_GET' => [],
-            'controller' => \App\Controller\DefaultController::class,
-            'method' => 'render404'
-        ]
-    ];
+    private array $routes;
 
-    public static function getRoute(): array {
-        foreach (self::ROUTES as $route) {
+    public function __construct(array $routes) {
+        $this->routes = $routes;
+    }
+
+    public function getRoute(): array {
+        foreach ($this->routes as $route) {
             $match = true;
             $route['parameters'] = array();
             foreach ($route['_GET'] as $key => $value) {
@@ -72,8 +34,8 @@ class Router {
         return null;
     }
 
-    public static function route() {
-        $route = self::getRoute();
+    public function route() {
+        $route = $this->getRoute();
         if ($route) {
             $method = $route['method'];
             $controller = new $route['controller']();
