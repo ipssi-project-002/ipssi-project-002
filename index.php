@@ -54,6 +54,13 @@ $routes = [
     ]
 ];
 
+$airtable = new App\Airtable\Airtable(
+    $_ENV['AIRTABLE_API_KEY'],
+    $_ENV['AIRTABLE_BASE_ID']
+);
+
+$airtable->makeRequest('/Users', 'GET');
+
 (new Router($routes))->route();
 
 ?>
