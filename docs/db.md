@@ -13,7 +13,7 @@ imaginé structure MySQL et MongoDB
 
 
 # MongoDB
-# Avantages
+## Avantages
 - document JSON, éléments imbriqués les uns dans les autres
 - fonction « ReplicaSet » pour avoir plusieurs serveurs disposant des mêmes données
 
