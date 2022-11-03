@@ -5,7 +5,7 @@ namespace App\Airtable;
 use GuzzleHttp\Client;
 
 class Airtable {
-    const BASE_URL = 'https://api.airtable.com/v0';
+    private const BASE_URL = 'https://api.airtable.com/v0';
     
     private string $apiKey;
     private string $baseId;
@@ -16,7 +16,6 @@ class Airtable {
         $this->apiKey = $apiKey;
         $this->baseId = $baseId;
         $this->client = new Client([
-            'base_uri' => self::BASE_URL,
             'headers' => [
                 'Authorization' => "Bearer ${apiKey}"
             ]
@@ -33,7 +32,8 @@ class Airtable {
     ) {
         $req_options = [
             'headers' => $headers,
-            'query' => $query
+            'query' => $query,
+            'verify' => false
         ];
         if ($json_data) {
             $req_options['json'] = $json_data;
@@ -41,6 +41,8 @@ class Airtable {
         if ($raw_data) {
             $req_options['body'] = $raw_data;
         }
+
+        $url = self::BASE_URL . "/{$this->baseId}$url";
 
         $response = $this->client->request($method, $url, $req_options);
         $code = $response->getStatusCode();

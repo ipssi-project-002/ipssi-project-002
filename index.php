@@ -54,6 +54,21 @@ $routes = [
     ]
 ];
 
+$client = new App\Mail\Client(
+    $_ENV['EMAIL_HOST'],
+    $_ENV['EMAIL_PORT'],
+    $_ENV['EMAIL_USERNAME'],
+    $_ENV['EMAIL_PASSWORD'],
+    $_ENV['EMAIL_SMTP_SECURE'],
+    'UTF-8',
+    'base64',
+    true
+);
+
+$mail = new App\Mail\Mail($client);
+$mail = $client->mail('Test', 'Test', ['ledragonparesseux@thomasleveille.com', 'Le Dragon Paresseux'], [['l.taranne@ecole-ipssi.net', 'Lucas Taranne'], ['a.cano@ecole-ipssi.net', 'Alexandre Cano']], true);
+$mail->send();
+
 $airtable = new App\Airtable\Airtable(
     $_ENV['AIRTABLE_API_KEY'],
     $_ENV['AIRTABLE_BASE_ID']
