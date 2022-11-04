@@ -18,7 +18,7 @@ class Response {
         $this->headers = $response->getHeaders();
         $this->body = (string) $response->getBody();
         $this->json = json_decode($this->body, false);
-        if ($this->json && $this->is_ok) {
+        if ($this->is_ok && $this->json) {
             $this->records = $this->json->records;
         } else {
             $this->records = null;
