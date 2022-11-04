@@ -5,7 +5,7 @@ $routes = [
         '_GET' => [
             'page' => 'dish',
             'action' => 'view',
-            'ref' => '.*'
+            'ref' => '/.*/'
         ],
         'controller' => \App\Controller\DishController::class,
         'method' => 'view'
@@ -14,7 +14,7 @@ $routes = [
         '_GET' => [
             'page' => 'dish',
             'action' => 'edit',
-            'ref' => '.*'
+            'ref' => '/.*/'
         ],
         'controller' => \App\Controller\DishController::class,
         'method' => 'edit'
@@ -31,10 +31,18 @@ $routes = [
         '_GET' => [
             'page' => 'dish',
             'action' => 'delete',
-            'ref' => '.*'
+            'ref' => '/.*/'
         ],
         'controller' => \App\Controller\DishController::class,
         'method' => 'delete'
+    ],
+    [
+        '_GET' => [
+            'page' => 'user',
+            'action' => 'index'
+        ],
+        'controller' => \App\Controller\UserController::class,
+        'method' => 'index'
     ],
     // homepage
     [

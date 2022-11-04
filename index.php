@@ -13,8 +13,6 @@ $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->safeLoad();
 
 
-
-
 /* 
 $airtable = new App\Airtable\Airtable(
     $_ENV['AIRTABLE_API_KEY'],

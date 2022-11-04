@@ -8,8 +8,8 @@ use GuzzleHttp\Exception;
 class Airtable {
     private const BASE_URL = 'https://api.airtable.com/v0';
     
-    private string $apiKey;
-    private string $baseId;
+    private string $api_key;
+    private string $base_id;
 
     private Client $client;
 
@@ -22,15 +22,19 @@ class Airtable {
         return "AND(${conditions})";
     }
 
-    public function __construct(string $apiKey, string $baseId) {
-        $this->apiKey = $apiKey;
-        $this->baseId = $baseId;
+    public function __construct() {
+        $this->getConfig();
         $this->client = new Client([
             'headers' => [
-                'Authorization' => "Bearer ${apiKey}",
+                'Authorization' => "Bearer {$this->api_key}",
                 'Accept' => 'application/json; charset=utf-8',
             ]
         ]);
+    }
+
+    public function getConfig(): void {
+        $this->api_key = $_ENV['AIRTABLE_API_KEY'];
+        $this->base_id = $_ENV['AIRTABLE_BASE_ID'];
     }
 
     public function request(
@@ -53,7 +57,7 @@ class Airtable {
             $req_options['body'] = $raw_data;
         }
 
-        $url = self::BASE_URL . "/{$this->baseId}$url";
+        $url = self::BASE_URL . "/{$this->base_id}$url";
 
         try {
             $response = $this->client->request($method, $url, $req_options);
