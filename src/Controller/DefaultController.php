@@ -10,10 +10,6 @@ class DefaultController {
         $content = ob_get_clean();
         require TEMPLATE_PATH . '/Base/layout.php';
     }
-
-    public function render404(array $params = []) {
-        $this->render('Base/404', $params);
-    }
 }
 
 ?>

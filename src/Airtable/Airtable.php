@@ -14,6 +14,15 @@ class Airtable {
 
     private Client $client;
 
+    public static function formula(array $filters) {
+        $conditions = array();
+        foreach ($filters as $key => $value) {
+            $conditions[] = "$key='${value}'";
+        }
+        $conditions = implode(',', $conditions);
+        return "AND(${conditions})";
+    }
+
     public function __construct(string $apiKey, string $baseId) {
         $this->apiKey = $apiKey;
         $this->baseId = $baseId;
