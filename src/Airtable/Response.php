@@ -8,10 +8,10 @@ class Response {
     private bool $is_ok;
     private array $headers;
     private ?string $body;
-    private ?Object $json;
+    private ?object $json;
     private ?array $records;
 
-    public function __construct(Object $response) {
+    public function __construct(object $response) {
         $this->statusCode = $response->getStatusCode();
         $this->reasonPhrase = $response->getReasonPhrase();
         $this->is_ok = $response->getStatusCode() >= 200 && $response->getStatusCode() < 300;

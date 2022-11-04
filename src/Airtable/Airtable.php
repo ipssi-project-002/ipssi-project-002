@@ -2,7 +2,6 @@
 
 namespace App\Airtable;
 
-use Exception as GlobalException;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception;
 
