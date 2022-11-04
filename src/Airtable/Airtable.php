@@ -11,6 +11,8 @@ class Airtable {
     private string $api_key;
     private string $base_id;
 
+    private array $tables;
+
     private Client $client;
 
     public static function formula(array $filters) {
@@ -35,6 +37,21 @@ class Airtable {
     public function getConfig(): void {
         $this->api_key = $_ENV['AIRTABLE_API_KEY'];
         $this->base_id = $_ENV['AIRTABLE_BASE_ID'];
+
+        foreach ($_ENV as $key => $value) {
+            if (preg_match('/^TABLE_(?<tableName>.*)$/i', $key, $matches)) {
+                $table_name = $matches['tableName'];
+                $this->tables[$table_name] = $value;
+            }
+        }
+    }
+
+    public function getTable(string $table_name): string {
+        if (array_key_exists($table_name, $this->tables)) {
+            return $this->tables[$table_name];
+        } else {
+            throw new \Exception("Airtable: Table '${table_name}' not found");
+        }
     }
 
     public function request(

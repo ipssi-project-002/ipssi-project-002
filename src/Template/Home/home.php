@@ -3,10 +3,10 @@
     <div>
       <h3 class="float-md-start mb-0">Le Dragon Paresseux</h3>
       <nav class="nav nav-masthead justify-content-center float-md-end">
-        <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="#">Accueil</a>
-        <a class="nav-link fw-bold py-1 px-0" href="#">Commander</a>
-        <a class="nav-link fw-bold py-1 px-0" href="#">Réserver une table</a>
-        <a class="nav-link fw-bold py-1 px-0" href="#">Nous contacter</a>
+        <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="?">Accueil</a>
+        <a class="nav-link fw-bold py-1 px-0" href="?page=menu">Commander</a>
+        <a class="nav-link fw-bold py-1 px-0" href="?page=booking">Réserver une table</a>
+        <a class="nav-link fw-bold py-1 px-0" href="?page=contact">Nous contacter</a>
       </nav>
     </div>
   </header>
@@ -15,8 +15,8 @@
     <h1>Le Dragon Paresseux</h1>
     <p class="lead">Découvrez nos plats élaborés avec le plus grand soin par nos dragons paresseux. Sur place ou à emporté, vos plats sont prêts en moins de 4h.</p>
     <p class="lead">
-      <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Commander</a>
-      <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Réserver une table</a>
+      <a href="?page=menu" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Commander</a>
+      <a href="?page=booking" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Réserver une table</a>
     </p>
   </main>
 

@@ -5,7 +5,7 @@ namespace App\Model;
 use App\Entity\User;
 
 class UserModel extends DefaultModel {
-    protected string $table = 'Users';
+    protected string $table_name = 'USERS';
 }
 
 ?>

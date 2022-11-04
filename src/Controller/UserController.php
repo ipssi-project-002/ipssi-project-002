@@ -6,15 +6,17 @@ use App\Entity\User;
 use App\Model\UserModel;
 
 class UserController extends DefaultController {
-    private UserModel $model;
-    private User $entity;
-
     public function __construct() {
         $this->model = new UserModel();
+        $this->entity = new User();
     }
 
     public function index(): void {
-        $users = $this->model->find();
+        $_users = $this->model->find();
+        $users = array();
+        foreach ($_users as $_user) {
+            $users[] = User::fromRecord($_user);
+        }
         $this->render('User/index', [ 'users' => $users ]);
     }
 }

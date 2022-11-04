@@ -5,7 +5,13 @@ namespace App\Model;
 use App\Airtable\Airtable;
 
 class DefaultModel extends Airtable {
-    protected string $table;
+    protected string $table_name;
+    protected string $table_id;
+
+    public function __construct() {
+        parent::__construct();
+        $this->table_id = $this->getTable($this->table_name);
+    }
 
     public function find(array $filters = []): array {
         if (! empty($filters)) {
@@ -13,7 +19,7 @@ class DefaultModel extends Airtable {
         } else {
             $query = [];
         }
-        $records = $this->get($this->table, $query)->getRecords();
+        $records = $this->get($this->table_id, $query)->getRecords();
         return is_null($records)
             ? throw new \Exception('Airtable: Request failed')
             : $records;

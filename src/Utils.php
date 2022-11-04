@@ -3,6 +3,9 @@
 namespace App;
 
 class Utils {
+    public const DATETIME = 'd/m/Y H:i P';
+    public const DATE = 'd/m/Y';
+
     public static function uuid(string $prefix = '', bool $longer = false) {
         return uniqid($prefix, $longer);
     }
@@ -22,6 +25,10 @@ class Utils {
         if ($exit_after) {
             exit;
         }
+    }
+
+    public static function formatDate(\DateTime $date, string $format = self::DATETIME) {
+        return $date->setTimezone(new \DateTimeZone(DISPLAY_TIMEZONE))->format($format);
     }
 }
 
