@@ -21,5 +21,8 @@
                 <td><?= $user->getAccountType() ?></td>
                 <td><?= App\Utils::formatDate($user->getCreatedTime()) ?></td>
             </tr>
+            <tr>
+                <?= var_dump($user) ?>
+            </tr>
         <?php } ?>
 </table>

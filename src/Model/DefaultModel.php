@@ -3,10 +3,12 @@
 namespace App\Model;
 
 use App\Airtable\Airtable;
+use App\Entity\Entity;
 
 class DefaultModel extends Airtable {
     protected string $table_name;
     protected string $table_id;
+    protected string $entity = Entity::class;
 
     public function __construct() {
         parent::__construct();
@@ -20,9 +22,15 @@ class DefaultModel extends Airtable {
             $query = [];
         }
         $records = $this->get($this->table_id, $query)->getRecords();
-        return is_null($records)
-            ? throw new \Exception('Airtable: Request failed')
-            : $records;
+        if (is_null($records)) {
+            return throw new \Exception('Airtable: Request failed');
+        } else {
+            $entities = array();
+            foreach ($records as $record) {
+                $entities[] = $this->entity::fromRecord($record);
+            }
+            return $entities;
+        }
     }
 
     public function findOne(string|array $id_or_filters): ?object {

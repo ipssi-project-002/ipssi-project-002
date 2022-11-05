@@ -12,11 +12,7 @@ class UserController extends DefaultController {
     }
 
     public function index(): void {
-        $_users = $this->model->find();
-        $users = array();
-        foreach ($_users as $_user) {
-            $users[] = User::fromRecord($_user);
-        }
+        $users = $this->model->find();
         $this->render('User/index', [ 'users' => $users ]);
     }
 }
