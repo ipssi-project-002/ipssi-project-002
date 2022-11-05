@@ -93,39 +93,38 @@ class Airtable {
     }
 
     public function get(string $table, array $query = []): Response {
-        return $this->request("/$table", 'GET', null, [], null, $query);
+        return $this->request(
+            url: "/{$table}",
+            method: 'GET',
+            query: $query
+        );
     }
 
     public function create(string $table, array $records, array $query = []): Response {
         return $this->request(
-            "/$table",
-            'POST',
-            [ 'records' => $records ],
-            [ 'Content-Type' => 'application/json; charset=utf-8' ],
-            null,
-            $query
+            url: "/{$table}",
+            method: 'POST',
+            json_data: [ 'records' => $records ],
+            headers: [ 'Content-Type' => 'application/json; charset=utf-8' ],
+            query: $query
         );
     }
 
     public function update(string $table, array $records, array $query = []): Response {
         return $this->request(
-            "/$table",
-            'PATCH',
-            [ 'records' => $records ],
-            [ 'Content-Type' => 'application/json; charset=utf-8' ],
-            null,
-            $query
+            url: "/{$table}",
+            method: 'PATCH',
+            json_data: [ 'records' => $records ],
+            headers: [ 'Content-Type' => 'application/json; charset=utf-8' ],
+            query: $query
         );
     }
 
     public function delete(string $table, array $record_ids, array $query = []): Response {
         return $this->request(
-            "/$table",
-            'DELETE',
-            null,
-            [],
-            null,
-            [ ...$query, 'records' => $record_ids ]
+            url: "/{$table}",
+            method: 'DELETE',
+            query: [ ...$query, 'records' => $record_ids ]
         );
     }
 }

@@ -3,6 +3,14 @@
 $routes = [
     [
         '_GET' => [
+            'page' => 'booking',
+            'action' => 'create'
+        ],
+        'controller' => \App\Controller\BookingController::class,
+        'method' => 'create'
+    ],
+    [
+        '_GET' => [
             'page' => 'dish',
             'action' => 'view',
             'ref' => '/.*/'
