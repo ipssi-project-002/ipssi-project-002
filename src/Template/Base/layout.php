@@ -11,16 +11,15 @@
     <link rel="icon" type="image/png" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/icon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/icon-16x16.png">
-
-    <link rel="stylesheet" type="text/css" href="/assets/bootstrap_5.2.2/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="/assets/css/base/layout.css" />
-    <link rel="stylesheet" type="text/css" href="/assets/css/base/styles.css" />
-    <script defer type="text/javascript" src="/assets/bootstrap_5.2.2/bootstrap.min.js"></script>
-    <script defer type="text/javascript" src="/assets/js/base/layout.js"></script>
+    <link rel="stylesheet" type="text/css" href="./assets/bootstrap_5.2.2/bootstrap.min.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="./assets/css/base/layout.css" /> -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/styles.css" />
 </head>
 <body>
     <header></header>
     <main><?= $content ?></main>
     <footer></footer>
+    <script defer type="text/javascript" src="./assets/bootstrap_5.2.2/bootstrap.min.js"></script>
+    <script defer type="text/javascript" src="/assets/js/base/layout.js"></script>
 </body>
 </html>
