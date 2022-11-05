@@ -5,49 +5,41 @@ namespace App\Model;
 use App\Airtable\Airtable;
 
 class DefaultModel extends Airtable {
-    protected string $table;
+    protected string $table_name;
+    protected string $table_id;
 
-    find(array $filters)
-    findOne(array $id)
-    findBy(array $filters)
-    findOneBy(array $filters)
+    public function __construct() {
+        parent::__construct();
+        $this->table_id = $this->getTable($this->table_name);
+    }
 
-    public function findBy(array $filters): array {
+    public function find(array $filters = []): array {
         if (! empty($filters)) {
             $query = [ 'filterByFormula' => self::formula($filters) ];
         } else {
             $query = [];
         }
-        $records = $this->get($this->table, $query)->getRecords();
+        $records = $this->get($this->table_id, $query)->getRecords();
         return is_null($records)
             ? throw new \Exception('Airtable: Request failed')
             : $records;
     }
 
-    public function 
-
-    public function findAll(array $filters): array {
-        if (! empty($filters)) {
-            $query = [ 'filterByFormula' => self::formula($filters) ];
+    public function findOne(string|array $id_or_filters): ?object {
+        if (is_string($id_or_filters)) {
+            $filters = [ 'RECORD_ID()' => $id_or_filters ];
         } else {
-            $query = array();
+            $filters = $id_or_filters;
         }
-        $records = $this->get($this->table, $query)->getRecords();
-        return is_null($records)
-            ? throw new \Exception('Request failed')
-            : $records;
-    }
-
-    public function find(array $filters): ?object {
-        $formula = self::formula(['RECORD_ID()' => $id]);
-        $records = $this->get($this->table, ['filterByFormula' => $formula])->getRecords();
+        $records = $this->find($filters);
         if (is_null($records)) {
-            return throw new \Exception('Request failed');
+            return throw new \Exception('Airtable: Request failed');
         }
-        if (count($records) < 1) {
-            return null;
-        } else {
+        $length = count($records);
+        if ($length === 1) {
             return $records[0];
+        } else {
+            return throw new \Exception("Airtable: Expected 1 record, got ${length}");
         }
     }
 }

@@ -1,7 +1,6 @@
 <?php
 
 define('ROOT', __DIR__);
-define('TEMPLATE_PATH', ROOT . '/src/Template');
 
 require_once ROOT . '/vendor/autoload.php';
 require_once ROOT . '/src/Routes.php';
@@ -12,7 +11,8 @@ use App\Router\Router;
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->safeLoad();
 
-
+define('TEMPLATE_PATH', ROOT . '/src/Template');
+define('DISPLAY_TIMEZONE', isset($_ENV['TIMEZONE']) ? $_ENV['TIMEZONE'] : 'UTC');
 
 
 /* 
@@ -42,7 +42,6 @@ var_dump($jwt);
 $decoded = Firebase\JWT\JWT::decode($jwt, new Firebase\JWT\Key($key, 'HS512'));
 var_dump($decoded);
  */
-
 
 (new Router($routes))->route();
 

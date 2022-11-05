@@ -18,7 +18,7 @@ class Router {
                     array_key_exists($key, $_GET)
                     && (
                         $_GET[$key] === $value
-                        || preg_match($value, $_GET[$key])
+                        || @preg_match($value, $_GET[$key])
                     )
                 ) {
                     $route['parameters'][$key] = $_GET[$key];
