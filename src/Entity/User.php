@@ -3,7 +3,7 @@
 namespace App\Entity;
 
 class User extends Entity {
-    protected string $id;
+    protected ?string $id = null;
     protected ?string $username = null;
     protected string $firstName;
     protected string $lastName;
@@ -11,14 +11,35 @@ class User extends Entity {
     protected ?string $phoneNumber = null;
     protected ?string $passwordHash = null;
     protected string $accountType;
-    protected ?object $profilePicture = null;
+    protected ?array $profilePicture = null;
     protected ?\DateTime $createdTime = null;
     protected array $userPreferences = [];
     protected array $emailVerifications = [];
     protected array $passwordResets = [];
     protected array $shoppingCart = [];
 
-    public function getId(): string {
+    public function toRecord(): object
+    {
+        $profile_picture = $this->getProfilePicture();
+        if ($profile_picture) {
+            
+        }
+        $record = [
+            ...(array) parent::toRecord(),
+            'fields' => [
+                'username' => $this->username,
+                'firstName' => $this->firstName,
+                'lastName' => $this->lastName,
+                'emailAddress' => $this->emailAddress,
+                'phoneNumber' => $this->phoneNumber,
+                'passwordHash' => $this->passwordHash,
+                'accountType' => $this->accountType,
+                'profilePicture' => $this->profilePicture,
+            ]
+        ];
+    }
+
+    public function getId(): ?string {
         return $this->id;
     }
 
@@ -78,12 +99,16 @@ class User extends Entity {
         $this->accountType = $account_type;
     }
 
-    public function getProfilePicture(): ?object {
-        return $this->profilePicture;
+    public function getProfilePicture(): ?Picture {
+        if (is_array($this->profilePicture) && count($this->profilePicture) > 0) {
+            return Picture::fromArray((array) $this->profilePicture[0]);
+        } else {
+            return Picture::default();
+        }
     }
 
-    public function setProfilePicture(?object $profile_picture): void {
-        $this->profilePicture = $profile_picture;
+    public function setProfilePicture(Picture $profile_picture): void {
+        $this->profilePicture = [ $profile_picture ];
     }
 
     public function getCreatedTime(): ?\DateTime {
@@ -98,8 +123,8 @@ class User extends Entity {
         return $this->userPreferences[$key];
     }
 
-    public function setPreference(string $key, string $value): void {
-        $this->userPreferences[$key] = $value;
+    public function setPreference(UserPreference $preference): void {
+        $this->userPreferences[$preference->getKey()] = $preference;
     }
 
     public function getEmailVerifications(): array {

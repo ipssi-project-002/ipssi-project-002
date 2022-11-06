@@ -111,10 +111,16 @@ class Airtable {
     }
 
     public function update(string $table, array $records, array $query = []): Response {
+        $json_data = [
+            'performUpsert' => [
+                'fieldsToMergeOn' => [ 'reference' ]
+            ],
+            'records' => $records
+        ];
         return $this->request(
             url: "/{$table}",
             method: 'PATCH',
-            json_data: [ 'records' => $records ],
+            json_data: $json_data,
             headers: [ 'Content-Type' => 'application/json; charset=utf-8' ],
             query: $query
         );

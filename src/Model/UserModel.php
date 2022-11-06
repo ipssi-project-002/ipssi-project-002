@@ -14,7 +14,9 @@ class UserModel extends DefaultModel {
             $preferences = (new UserPreferenceModel())->find([
                 'user' => $user->getId()
             ]);
-            $user->setPreferences($preferences);
+            foreach ($preferences as $preference) {
+                $user->setPreference($preference);
+            }
         }
         return $users;
     }

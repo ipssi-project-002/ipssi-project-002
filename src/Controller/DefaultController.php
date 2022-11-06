@@ -2,12 +2,9 @@
 
 namespace App\Controller;
 
-use App\Model\DefaultModel;
-use App\Entity\Entity;
-
 class DefaultController {
-    protected DefaultModel $model;
-    protected Entity $entity;
+    protected $model;
+    protected $entity;
 
     public function render(string $template, array $data = []) {
         extract($data);

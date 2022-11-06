@@ -13,6 +13,7 @@
     <tbody>
         <?php foreach ($users as $user) { ?>
             <tr>
+                <td><?= $user->getProfilePicture()->img() ?></td>
                 <td><?= $user->getUsername() ?></td>
                 <td><?= $user->getFirstName() ?></td>
                 <td><?= $user->getLastName() ?></td>
@@ -21,8 +22,8 @@
                 <td><?= $user->getAccountType() ?></td>
                 <td><?= App\Utils::formatDate($user->getCreatedTime()) ?></td>
             </tr>
-            <tr>
-                <?= var_dump($user) ?>
-            </tr>
         <?php } ?>
 </table>
+<?php foreach ($users as $user) {
+    var_dump($user->toRecord());
+} ?>

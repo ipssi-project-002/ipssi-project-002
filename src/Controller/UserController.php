@@ -12,7 +12,7 @@ class UserController extends DefaultController {
     }
 
     public function index(): void {
-        $users = $this->model->find();
+        $users = $this->model->findEnriched();
         $this->render('User/index', [ 'users' => $users ]);
     }
 }

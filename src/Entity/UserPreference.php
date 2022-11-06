@@ -4,7 +4,7 @@ namespace App\Entity;
 
 class UserPreference extends Entity {
     protected string $id;
-    protected string $userId;
+    protected array $user;
     protected string $key;
     protected string $value;
 
@@ -13,7 +13,7 @@ class UserPreference extends Entity {
     }
 
     public function getUserId(): string {
-        return $this->userId;
+        return $this->user[0];
     }
 
     public function getKey(): string {
