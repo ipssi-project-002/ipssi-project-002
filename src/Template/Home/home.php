@@ -1,24 +1,8 @@
 <div class="d-flex h-100 text-center text-bg-dark">
   <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-    <header class="mb-auto">
-      <div>
-        <nav class="nav nav-masthead justify-content-center float-md-center">
-          <a class="nav-link fw-bold py-0 px-2" href="#order">Commander</a> <!-- active" aria-current="page" -->
-          <a class="nav-link fw-bold py-0 px-2" href="#">Réserver une table</a>
-          <a class="nav-link fw-bold py-0 px-2" href="?page=about">À propos</a>
-          <a class="nav-link fw-bold py-0 px-2" href="#">Contact</a>
-          <?php if ($USER->isLoggedIn()) {
-            ?>
-            <a class="nav-link fw-bold py-0 px-2" href="/user/logout">Déconnexion</a>
-            <?php
-          } ?>
-        </nav>
-      </div>
-    </header>
-
     <main class="px-3">
       <h1>Le Dragon Paresseux</h1>
-      <p class="lead">Découvrez nos plats élaborés avec le plus grand soin par nos dragons. Sur place ou à emporté, vos plats sont prêts en moins de 4h.</p>
+      <p class="lead">Découvrez nos plats élaborés avec le plus grand soin par nos dragons. Sur place ou à emporter, vos plats sont prêts en moins d'1h.</p>
       <p class="lead">
         <a href="#order" class="btn btn-lg btn-secondary fw-bold border-white bg-white m-3">Commander</a>
         <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white m-3">Réserver une table</a>

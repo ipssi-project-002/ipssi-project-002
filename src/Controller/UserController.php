@@ -24,6 +24,16 @@ class UserController extends DefaultController {
         $this->model->saveOne($user);
         $this->render('User/index', [ 'users' => [ $user ] ]);
     }
+
+    public function login(): void {
+        $users = $this->model->find();
+        $this->render('User/signIn');
+    }
+    
+    public function signup(): void {
+        $users = $this->model->find();
+        $this->render('User/signUp');
+    }
 }
 
 ?>
