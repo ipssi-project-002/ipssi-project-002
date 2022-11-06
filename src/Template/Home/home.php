@@ -11,6 +11,7 @@
     </header>
 
     <main class="px-3">
+      <img class="img-fluid" src="./assets/img/logo.png" alt="Le Dragon Paresseux">
       <h1>Le Dragon Paresseux</h1>
       <p class="lead">Découvrez nos plats élaborés avec le plus grand soin par nos dragons. Sur place ou à emporté, vos plats sont prêts en moins de 4h.</p>
       <p class="lead">
