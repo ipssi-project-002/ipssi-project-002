@@ -3,6 +3,14 @@
 $routes = [
     [
         '_GET' => [
+            'page' => 'booking',
+            'action' => 'create'
+        ],
+        'controller' => \App\Controller\BookingController::class,
+        'method' => 'create'
+    ],
+    [
+        '_GET' => [
             'page' => 'dish',
             'action' => 'view',
             'ref' => '/.*/'
@@ -43,6 +51,30 @@ $routes = [
         ],
         'controller' => \App\Controller\UserController::class,
         'method' => 'index'
+    ],  
+    [
+        '_GET' => [
+            'page' => 'user',
+            'action' => 'login'
+        ],
+        'controller' => \App\Controller\UserController::class,
+        'method' => 'login'
+    ],
+    [
+        '_GET' => [
+            'page' => 'user',
+            'action' => 'signup'
+        ],
+        'controller' => \App\Controller\UserController::class,
+        'method' => 'signup'
+    ],
+    [
+        '_GET' => [
+            'page' => 'user',
+            'action' => 'test'
+        ],
+        'controller' => \App\Controller\UserController::class,
+        'method' => 'test'
     ],
     // homepage
     [
