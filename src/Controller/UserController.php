@@ -15,6 +15,14 @@ class UserController extends DefaultController {
         $users = $this->model->findEnriched();
         $this->render('User/index', [ 'users' => $users ]);
     }
+    public function login(): void {
+        $users = $this->model->findEnriched();
+        $this->render('User/signIn');
+    }
+    public function signup(): void {
+        $users = $this->model->findEnriched();
+        $this->render('User/signUp');
+    }
 }
 
 ?>
