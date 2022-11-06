@@ -14,23 +14,7 @@ $dotenv->safeLoad();
 define('TEMPLATE_PATH', ROOT . '/src/Template');
 define('DISPLAY_TIMEZONE', isset($_ENV['TIMEZONE']) ? $_ENV['TIMEZONE'] : 'UTC');
 
-
-/* 
-$airtable = new App\Airtable\Airtable(
-    $_ENV['AIRTABLE_API_KEY'],
-    $_ENV['AIRTABLE_BASE_ID']
-);
-
-$formula = $airtable::formula([
-    'username' => 'super.admin'
-]);
-
-$res = $airtable->get($_ENV['TABLE_USERS'], [
-    'filterByFormula' => $formula
-]);
-
-var_dump($res->getRecords()[0]->id, $res->getRecords()[0]->fields->username);
-
+/*
 $key = $_ENV['SECRET_KEY'];
 $payload = [
     'sub' => 'username',

@@ -52,6 +52,14 @@ $routes = [
         'controller' => \App\Controller\UserController::class,
         'method' => 'index'
     ],
+    [
+        '_GET' => [
+            'page' => 'user',
+            'action' => 'test'
+        ],
+        'controller' => \App\Controller\UserController::class,
+        'method' => 'test'
+    ],
     // homepage
     [
         '_GET' => [],

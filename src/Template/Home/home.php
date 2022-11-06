@@ -5,7 +5,13 @@
         <nav class="nav nav-masthead justify-content-center float-md-center">
           <a class="nav-link fw-bold py-0 px-2" href="#order">Commander</a> <!-- active" aria-current="page" -->
           <a class="nav-link fw-bold py-0 px-2" href="#">Réserver une table</a>
+          <a class="nav-link fw-bold py-0 px-2" href="?page=about">À propos</a>
           <a class="nav-link fw-bold py-0 px-2" href="#">Contact</a>
+          <?php if ($USER->isLoggedIn()) {
+            ?>
+            <a class="nav-link fw-bold py-0 px-2" href="/user/logout">Déconnexion</a>
+            <?php
+          } ?>
         </nav>
       </div>
     </header>

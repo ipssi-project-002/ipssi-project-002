@@ -25,6 +25,18 @@ class Picture extends Entity {
         return Picture::fromArray($data);
     }
 
+    public function toRecord(): object {
+        if (is_null($this->id)) {
+            return (object) [
+                'url' => $this->url
+            ];
+        } else {
+            return (object) [
+                'id' => $this->id
+            ];
+        }
+    }
+
     public function getId(): ?string {
         return $this->id;
     }

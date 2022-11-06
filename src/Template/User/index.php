@@ -25,5 +25,5 @@
         <?php } ?>
 </table>
 <?php foreach ($users as $user) {
-    var_dump($user->toRecord());
+    var_dump($user);
 } ?>

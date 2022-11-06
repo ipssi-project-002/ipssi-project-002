@@ -18,25 +18,23 @@ class User extends Entity {
     protected array $passwordResets = [];
     protected array $shoppingCart = [];
 
-    public function toRecord(): object
-    {
-        $profile_picture = $this->getProfilePicture();
-        if ($profile_picture) {
-            
-        }
-        $record = [
-            ...(array) parent::toRecord(),
-            'fields' => [
-                'username' => $this->username,
-                'firstName' => $this->firstName,
-                'lastName' => $this->lastName,
-                'emailAddress' => $this->emailAddress,
-                'phoneNumber' => $this->phoneNumber,
-                'passwordHash' => $this->passwordHash,
-                'accountType' => $this->accountType,
-                'profilePicture' => $this->profilePicture,
-            ]
+    public function toRecord(): object {
+        $record = (array) parent::toRecord();
+        $record['fields'] = [
+            ...$record['fields'],
+            'username' => $this->username,
+            'firstName' => $this->firstName,
+            'lastName' => $this->lastName,
+            'emailAddress' => $this->emailAddress,
+            'phoneNumber' => $this->phoneNumber,
+            'passwordHash' => $this->passwordHash,
+            'accountType' => $this->accountType
         ];
+        $profile_picture = $this->getProfilePicture();
+        if (! is_null($profile_picture)) {
+            $record['fields']['profilePicture'] = [ $profile_picture->toRecord() ];
+        }
+        return (object) $record;
     }
 
     public function getId(): ?string {
@@ -119,36 +117,52 @@ class User extends Entity {
         $this->createdTime = $created_time;
     }
 
+    public function getPreferences(): array {
+        return $this->userPreferences;
+    }
+
     public function getPreference(string $key): array {
         return $this->userPreferences[$key];
     }
 
-    public function setPreference(UserPreference $preference): void {
-        $this->userPreferences[$preference->getKey()] = $preference;
+    public function setPreference(string $key, string $value): void {
+        if (isset($this->userPreferences[$key]) && $this->userPreferences[$key] instanceof UserPreference) {
+            $this->userPreferences[$key]->setValue($value);
+        } else {
+            $this->userPreferences[$key] = UserPreference::fromArray([
+                'user' => [ $this->id ],
+                'key' => $key,
+                'value' => $value
+            ]);
+        }
+    }
+
+    public function addPreference(UserPreference $user_preference): void {
+        $this->userPreferences[$user_preference->getKey()] = $user_preference;
     }
 
     public function getEmailVerifications(): array {
         return $this->emailVerifications;
     }
-    
-    public function setEmailVerifications(array $email_verifications): void {
-        $this->emailVerifications = $email_verifications;
+
+    public function addEmailVerification(EmailVerification $email_verification): void {
+        $this->emailVerifications[] = $email_verification;
     }
 
     public function getPasswordResets(): array {
         return $this->passwordResets;
     }
 
-    public function setPasswordResets(array $password_resets): void {
-        $this->passwordResets = $password_resets;
+    public function addPasswordReset(PasswordReset $password_reset): void {
+        $this->passwordResets[] = $password_reset;
     }
 
-    public function getShoppingCart(string $dish_id): array {
+    public function getShoppingCart(string $dish_id): ShoppingCart {
         return $this->shoppingCart[$dish_id];
     }
 
-    public function setShoppingCart(string $dish_id, array $dish): void {
-        $this->shoppingCart[$dish_id] = $dish;
+    public function setShoppingCart(ShoppingCart $shopping_cart): void {
+        $this->shoppingCart[$shopping_cart->getDishId()] = $shopping_cart;
     }
 }
 

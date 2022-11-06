@@ -53,24 +53,44 @@ class DefaultModel extends Airtable {
     }
 
     public function save(array $entities) {
-        $records = array();
+        $records = [
+            'new' => array(),
+            'existing' => array()
+        ];
         foreach ($entities as $entity) {
-            $records[] = $entity->toRecord();
+            if (is_null($entity->getId())) {
+                $records['new'][] = $entity->toRecord();
+            } else {
+                $records['existing'][] = $entity->toRecord();
+            }
         }
-        $updated_records = $this->update($this->table_id, $records)->getRecords();
-        if (is_null($updated_records)) {
-            return throw new \Exception('Airtable: Request failed');
+        $returned_records = array();
+        if (! empty($records['existing'])) {
+            $updated_records = $this->update($this->table_id, $records['existing'])->getRecords();
+            if (is_null($updated_records)) {
+                return throw new \Exception('Airtable: Update request failed');
+            } else {
+                $returned_records = array_merge($returned_records, $updated_records);
+            }
         }
-        $length = count($records);
-        $length_updated = count($updated_records);
-        if ($length === $length_updated) {
+        if (! empty($records['new'])) {
+            $created_records = $this->create($this->table_id, $records['new'])->getRecords();
+            if (is_null($created_records)) {
+                return throw new \Exception('Airtable: Create request failed');
+            } else {
+                $returned_records = array_merge($returned_records, $created_records);
+            }
+        }
+        $length = count($entities);
+        $length_processed = count($returned_records);
+        if ($length === $length_processed) {
             $entities = array();
-            foreach ($updated_records as $record) {
+            foreach ($returned_records as $record) {
                 $entities[] = $this->entity::fromRecord($record);
             }
             return $entities;
         } else {
-            return throw new \Exception("Airtable: Expected {$length} record(s) to be updated, got {$length_updated}");
+            return throw new \Exception("Airtable: Expected {$length} record(s) to be updated, got {$length_processed}");
         }
     }
 

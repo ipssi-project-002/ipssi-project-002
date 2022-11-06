@@ -42,7 +42,10 @@ class Entity {
             'fields' => []
         ];
         if (method_exists($this, 'getId')) {
-            $record['id'] = $this->getId();
+            $id = $this->getId();
+            if (! is_null($id)) {
+                $record['id'] = $id;
+            }
         }
         return (object) $record;
     }

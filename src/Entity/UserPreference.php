@@ -3,12 +3,23 @@
 namespace App\Entity;
 
 class UserPreference extends Entity {
-    protected string $id;
+    protected ?string $id = null;
     protected array $user;
     protected string $key;
     protected string $value;
 
-    public function getId(): string {
+    public function toRecord(): object {
+        $record = (array) parent::toRecord();
+        $record['fields'] = [
+            ...$record['fields'],
+            'user' => [ $this->getUserId() ],
+            'key' => $this->key,
+            'value' => $this->value
+        ];
+        return (object) $record;
+    }
+
+    public function getId(): ?string {
         return $this->id;
     }
 
