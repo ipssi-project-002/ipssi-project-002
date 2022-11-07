@@ -122,7 +122,15 @@ $routes = [
             'action' => 'create'
         ],
         'controller' => \App\Controller\ContactController::class,
-        'method' => 'create'
+        'method' => 'contact'
+    ],
+    [
+        '_GET' => [
+            'page' => 'contact',
+            'action' => 'submit'
+        ],
+        'controller' => \App\Controller\ContactController::class,
+        'method' => 'contactSubmit'
     ],
     // homepage
     [

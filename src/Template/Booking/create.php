@@ -40,16 +40,19 @@
                                 Une addresse email valide est nécessaire.
                             </div>
                         </div>
-                        <select class="form-select form-select-md" id="number-of-guests" name="number-of-guests" aria-label=".form-select-sm example">
-                            <option selected>Selectionner le nombre de personnes</option>
-                            <?php
-                            for ($i = 1; $i <= 12; $i++) {
-                            ?>
-                                <option value="<?= $i ?>"><?= $i ?></option>
-                            <?php
-                            }
-                            ?>
-                        </select>
+                        <div class="col-12 mb-3">
+                            <select class="form-select form-select-md" id="number-of-guests" name="number-of-guests" aria-label=".form-select-sm example">
+                                <option selected>Selectionner le nombre de personnes</option>
+                                <?php
+                                for ($i = 1; $i <= 12; $i++) {
+                                ?>
+                                    <option value="<?= $i ?>"><?= $i ?></option>
+                                <?php
+                                }
+                                ?>
+                            </select>
+                        </div>
+
                         <select class="form-select form-select-md" id="arrival-time" name="arrival-time" aria-label=".form-select-sm example">
                             <option selected>Selectionner une heure</option>
                             <option value="19:00">19:00</option>

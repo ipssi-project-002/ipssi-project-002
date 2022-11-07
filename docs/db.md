@@ -32,3 +32,4 @@ puis avons pensé à 3ème solution : Airtable (BDD-like no-code avec gestion pa
 
 ## Inconvénients
 - no-code ; seule interface = API via requêtes HTTP(S)
+- réponses longues (surtout en PHP :/ )

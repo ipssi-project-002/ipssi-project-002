@@ -21,26 +21,11 @@ class UserController extends DefaultController {
         $this->render('User/index', [ 'users' => $users ]);
     }
 
-    public function test(): void {
-        $this->render('Test/test', [ 'data' => $_SESSION['session']->decoded ]);
-
-        /*
-        $user = $this->model->findOne([ 'username' => 'tomtom' ]);
-        $user->setPasswordHash(password_hash('password', PASSWORD_DEFAULT));
-        $user->setPreference('receiveNewsletter', '0');
-        $user->setPreference('theme', 'system');
-        $this->model->saveOne($user);
-        $this->render('User/index', [ 'users' => [ $user ] ]);
-        */
-    }
-
     public function logout(): void {
         if (isset($_SESSION['session'])) {
             $_SESSION['session']->destroy();
             unset($_SESSION['session']);
-            Utils::redirect('', [
-                'page' => 'home'
-            ]);
+            Utils::redirect('');
         }
     }
 
@@ -74,9 +59,7 @@ class UserController extends DefaultController {
                 domain: $_SERVER['SERVER_NAME'],
                 httponly: true
             );
-            Utils::redirect('', [
-                'page' => 'home'
-            ]);
+            Utils::redirect('');
         } else {
             $_SESSION['error'] = 'Informations de connexion incorrectes.';
             Utils::redirect('', [

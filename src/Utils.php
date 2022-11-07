@@ -3,24 +3,24 @@
 namespace App;
 
 class Utils {
-    public const DATETIME = 'd/m/Y H:i P';
+    public const DATETIME = 'd/m/Y H:i';
     public const DATE = 'd/m/Y';
 
     public static function uuid(string $prefix = '', bool $longer = false) {
         return uniqid($prefix, $longer);
     }
 
-    public static function buildUrl(string $url, array $params = []) {
+    public static function buildUrl(string $path, array $params = []) {
         $query = http_build_query($params);
         if (empty($query)) {
-            return $url;
+            return $path;
         } else {
-            return "${url}?${query}";
+            return "${path}?${query}";
         }
     }
 
-    public static function redirect(string $url, array $params = [], bool $exit_after = false) {
-        $redirect_url = self::buildUrl($url, $params);
+    public static function redirect(string $path, array $params = [], bool $exit_after = false) {
+        $redirect_url = self::buildUrl($path, $params);
         header("Location: ${redirect_url}");
         if ($exit_after) {
             exit;

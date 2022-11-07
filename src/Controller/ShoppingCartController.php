@@ -3,7 +3,7 @@
 namespace App\Controller;
 use App\Utils;
 
-class ShoppingCartController extends DefaultController {
+class ContactController extends DefaultController {
     public function contact(): void {
         $this->render('ShoppingCart/view');
     }

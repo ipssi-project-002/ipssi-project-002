@@ -3,7 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Booking;
+use App\Entity\BookingChange;
+use App\Entity\User;
 use App\Model\BookingModel;
+use App\Model\UserModel;
 use App\Controller\ErrorController;
 
 class BookingController extends DefaultController {
@@ -36,19 +39,38 @@ class BookingController extends DefaultController {
             $user_id = $_SESSION['session']->getUser()->getId();
         } else {
             $user_data = [
-                ''
+                'firstName' => $_POST['first-name'],
+                'lastName' => $_POST['last-name'],
+                'emailAddress' => $_POST['email-address'],
+                'phoneNumber' => $_POST['phone-number'],
+                'accountType' => 'Booker'
             ];
+            $user = User::fromArray($user_data);
+            $user = (new UserModel())->saveOne($user);
+            if (! $user) {
+                throw new \Exception('Failed to submit booking');
+            } else {
+                $user_id = $user->getId();
+            }
         }
+        $arrival_date = new \DateTime($_POST['arrival-datetime']);
+        // add one hour to the arrival date to get the departure date
+        $departure_date = clone $arrival_date;
+        $departure_date->add(new \DateInterval('PT1H'));
         $data = [
+            'user' => [ $user_id ],
+            'arrivalDate' => $arrival_date,
+            'departureDate' => $departure_date,
+            'numberOfGuests' => $_POST['number-of-guests']
         ];
-        $first_name = $_POST['first-name'];
-        $last_name = $_POST['last-name'];
-        $email_address = $_POST['email-address'];
-        $phone_number = $_POST['phone-number'];
-        $number_of_guests = $_POST['number-of-guests'];
-        $arrival_date = $_POST['arrival-datetime'];
-
-        $booking = new Booking();
+        $booking = Booking::fromArray($data);
+        $change = BookingChange::fromArray([
+            'changeDate' => new \DateTime(),
+            'status' => 'pending',
+            'author' => [ $user_id ]
+        ]);
+        $booking->addChange($change);
+        (new BookingModel())->saveOne($booking);
     }
 }
 
