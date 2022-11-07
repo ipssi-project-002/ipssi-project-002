@@ -16,7 +16,7 @@ class Picture extends Entity {
         $data = [
             'width' => 0,
             'height' => 0,
-            'url' => '',
+            'url' => 'https://placeholder.pics/svg/512x512/dedede/555555/Image introuvable',
             'filename' => '',
             'type' => '',
             'size' => 0,

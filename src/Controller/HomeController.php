@@ -6,8 +6,13 @@ use App\Model\DishModel;
 
 class HomeController extends DefaultController {
     public function home(array $params) {
+        $available_dishes = array();
         $dishes = (new DishModel())->find();
-        
-        $this->render('Home/home', $params);
+        foreach ($dishes as $dish) {
+            if ($dish->getLatestChange()->getStatus() === 'available') {
+                $available_dishes[] = $dish;
+            }
+        }
+        $this->render('Home/home', [ 'available_dishes' => $available_dishes ]);
     }
 }
