@@ -63,6 +63,14 @@ $routes = [
     [
         '_GET' => [
             'page' => 'user',
+            'action' => 'loginSubmit'
+        ],
+        'controller' => \App\Controller\UserController::class,
+        'method' => 'loginSubmit'
+    ],
+    [
+        '_GET' => [
+            'page' => 'user',
             'action' => 'signup'
         ],
         'controller' => \App\Controller\UserController::class,
