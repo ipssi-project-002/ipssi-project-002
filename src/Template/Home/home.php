@@ -5,8 +5,8 @@
       <h1>Le Dragon Paresseux</h1>
       <p class="lead">Découvrez nos plats élaborés avec le plus grand soin par nos dragons. Sur place ou à emporter, vos plats sont prêts en moins d'1h.</p>
       <p class="lead">
-        <a href="#order" class="btn btn-lg btn-secondary fw-bold border-white bg-white m-3">Commander</a>
-        <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white m-3">Réserver une table</a>
+        <a href="#order" class="btn btn-lg btn-secondary fw-bold border-white bg-white m-1">Commander</a>
+        <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white m-1">Réserver une table</a>
       </p>
     </main>
   </div>
