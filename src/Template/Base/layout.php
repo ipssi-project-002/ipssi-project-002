@@ -21,9 +21,9 @@
     <header class="mb-auto">
         <div>
             <nav class="nav nav-masthead bg-dark justify-content-center float-md-center">
-                <a class="nav-link fw-bold py-4 px-2" href="#order">Commander</a> <!-- active" aria-current="page" -->
-                <a class="nav-link fw-bold py-4 px-2" href="#">Réserver une table</a>
-                <a class="nav-link fw-bold py-4 px-2" href="#">Contact</a>
+                <a class="nav-link fw-bold py-4 px-2" href="?page=order&action=create">Commander</a> <!-- active" aria-current="page" -->
+                <a class="nav-link fw-bold py-4 px-2" href="?page=booking&action=create">Réserver une table</a>
+                <a class="nav-link fw-bold py-4 px-2" href="?page=contact&action=create">Contact</a>
                 <?php if ($_SESSION['session']->isLoggedIn()) {
                     $user = $_SESSION['session']->getUser();
                     ?>
