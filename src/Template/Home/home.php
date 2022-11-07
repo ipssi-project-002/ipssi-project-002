@@ -1,7 +1,7 @@
 <div class="d-flex h-100 text-center text-bg-dark">
   <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
     <main class="px-3">
-      <img class="img-fluid" src="./assets/img/logo.png" alt="Le Dragon Paresseux">
+      <img class="img-fluid" src="./assets/img/logo.png" alt="Le Dragon Paresseux" width="200">
       <h1>Le Dragon Paresseux</h1>
       <p class="lead">Découvrez nos plats élaborés avec le plus grand soin par nos dragons. Sur place ou à emporter, vos plats sont prêts en moins d'1h.</p>
       <p class="lead">
