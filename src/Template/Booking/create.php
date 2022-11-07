@@ -54,14 +54,14 @@
 
                         <select class="form-select form-select-md" aria-label=".form-select-sm example">
                             <option selected>Selectionner une heure</option>
-                            <option value="1">19h</option>
-                            <option value="2">19h30</option>
-                            <option value="3">20h</option>
-                            <option value="3">20h30</option>
-                            <option value="3">21h</option>
+                            <option value="1">19:00</option>
+                            <option value="2">19:30</option>
+                            <option value="3">20:00</option>
+                            <option value="3">20:30</option>
+                            <option value="3">21:00</option>
                         </select>
 
-                        <input class="input-group-text" type="date" id="start" name="trip-start"
+                        <input class="input-group-text text-left" type="date" id="start" name="trip-start"
                             value="2018-07-22"
                             min="2022-01-01" max="2022-12-31">
 
