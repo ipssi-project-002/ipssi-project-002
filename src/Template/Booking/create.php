@@ -14,7 +14,7 @@
                     <div class="row g-3">
                         <div class="col-sm-6">
                             <label for="firstName" class="form-label">Prénom</label>
-                            <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                            <input type="text" class="form-control" id="firstName" placeholder="John" value="" required>
                             <div class="invalid-feedback">
                                 Un prénom valide est demandé.
                             </div>
@@ -22,7 +22,7 @@
 
                         <div class="col-sm-6">
                             <label for="lastName" class="form-label">Nom</label>
-                            <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                            <input type="text" class="form-control" id="lastName" placeholder="Doe" value="" required>
                             <div class="invalid-feedback">
                                 Un nom valide est demandé.
                             </div>
@@ -38,7 +38,7 @@
 
                         <hr class="my-4">
 
-                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                        <select class="form-select form-select-md" aria-label=".form-select-sm example">
                             <option selected>Selectionner un jour</option>
                             <option value="1">Lundi</option>
                             <option value="2">Mardi</option>
@@ -48,7 +48,7 @@
                             <option value="3">Samedi</option>
                         </select>
 
-                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                        <select class="form-select form-select-md" aria-label=".form-select-sm example">
                             <option selected>Selectionner une heure</option>
                             <option value="1">19h</option>
                             <option value="2">19h30</option>
@@ -57,7 +57,7 @@
                             <option value="3">21h</option>
                         </select>
 
-                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                        <select class="form-select form-select-md" aria-label=".form-select-sm example">
                             <option selected>Selectionner le nombre de personnes</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
