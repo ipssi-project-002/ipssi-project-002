@@ -11,6 +11,14 @@ $routes = [
     ],
     [
         '_GET' => [
+            'page' => 'booking',
+            'action' => 'createSubmit'
+        ],
+        'controller' => \App\Controller\BookingController::class,
+        'method' => 'createSubmit'
+    ],
+    [
+        '_GET' => [
             'page' => 'dish',
             'action' => 'index'
         ],

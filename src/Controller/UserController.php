@@ -42,7 +42,6 @@ class UserController extends DefaultController {
     }
 
     public function login(): void {
-        $users = $this->model->find();
         $this->render('User/signIn');
     }
 

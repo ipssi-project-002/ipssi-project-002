@@ -32,6 +32,15 @@ class BookingController extends DefaultController {
     public function create(): void {
         $this->render('Booking/create');
     }
+
+    public function createSubmit(): void {
+        $first_name = $_POST['first-name'];
+        $last_name = $_POST['last-name'];
+        $email_address = $_POST['email-address'];
+        $phone_number = $_POST['phone-number'];
+        $number_of_guests = $_POST['number-of-guests'];
+        $arrival_date = $_POST['arrival-date'];
+    }
 }
 
 ?>
