@@ -7,13 +7,12 @@
 - Entity (Default & User)
 - Routes & Router
 - Controller (Default & User)
-
-
 - Template
 - Airtable & Response
 
 
 Corentin
+- "on a choisi Airtable"
 - index.php
 - .ENV
 - Utils.php
@@ -31,9 +30,9 @@ Alexandre
 
 
 Thomas
+- Airtable & Response
 - Model
 - Entity
-
 
 
 Yasmine

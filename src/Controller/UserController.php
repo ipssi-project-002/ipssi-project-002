@@ -43,9 +43,9 @@ class UserController extends DefaultController {
         if ($user && password_verify($password, $user->getPasswordHash())) {
             $time = time();
             $payload = [
-                'sub' => $user->getId(),
-                'iat' => $time,
-                'exp' => $time + (60 * 60 * 24 * 365.25)
+                'sub' => $user->getId(), // subject
+                'iat' => $time, // issued at: date de génération du token
+                'exp' => $time + (60 * 60 * 24 * 365.25) // expiration: date d’expiration du token
             ];
             $jwt = JWT::encode(
                 payload: $payload,

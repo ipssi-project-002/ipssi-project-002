@@ -10,7 +10,7 @@ class ContactController extends DefaultController {
         $this->render('Contact/contact');
     }
 
-    public function contactSubmit(){
+    public function contactSubmit(): void {
         $client = (new Client(
             host: $_ENV['EMAIL_SMTP_HOST'], 
             port: intval($_ENV['EMAIL_SMTP_PORT']),

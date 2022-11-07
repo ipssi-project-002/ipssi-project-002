@@ -13,9 +13,9 @@ class Router {
         foreach ($this->routes as $route) {
             $match = true;
             $route['parameters'] = array();
-            foreach ($route['_GET'] as $key => $value) {
+            foreach ($route['_GET'] as $key => $value) { // parcourir les paramètres demandés par la route
                 if (
-                    array_key_exists($key, $_GET)
+                    array_key_exists($key, $_GET) // paramètre présent dans l’URL
                     && (
                         $_GET[$key] === $value
                         || @preg_match($value, $_GET[$key])
