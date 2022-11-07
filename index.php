@@ -6,6 +6,7 @@ require_once ROOT . '/vendor/autoload.php';
 require_once ROOT . '/src/Routes.php';
 
 use App\Utils;
+use App\Session\Session;
 use App\Router\Router;
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
@@ -25,7 +26,10 @@ $jwt = Firebase\JWT\JWT::encode($payload, $key, 'HS512');
 var_dump($jwt);
 $decoded = Firebase\JWT\JWT::decode($jwt, new Firebase\JWT\Key($key, 'HS512'));
 var_dump($decoded);
- */
+*/
+
+session_start();
+$_SESSION['session'] = new Session();
 
 (new Router($routes))->route();
 

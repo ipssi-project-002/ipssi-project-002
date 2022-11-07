@@ -15,13 +15,13 @@ class Airtable {
 
     private Client $client;
 
-    public static function formula(array $filters) {
+    public static function formula(array $filters, string $operator = 'OR'): string {
         $conditions = array();
         foreach ($filters as $key => $value) {
             $conditions[] = "$key='${value}'";
         }
         $conditions = implode(',', $conditions);
-        return "AND(${conditions})";
+        return "${operator}(${conditions})";
     }
 
     public function __construct() {
