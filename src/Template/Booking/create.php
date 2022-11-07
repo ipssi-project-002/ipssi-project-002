@@ -2,7 +2,7 @@
 
     <main>
         <div class="py-5 text-center">
-            <img class="img-fluid" src="./assets/img/logo.png" alt="Le Dragon Paresseux" width="200">
+            <img class="img-fluid" src="./assets/img/logo.png" alt="Le Dragon Paresseux" >
             <h2>Reserver une table</h2>
             <p class="lead">Le Dragon Paresseux est ouvert tous les jours sauf le dimanche de 19h à 21h. Et c'est déjà pas mal.</p>
         </div>
@@ -50,6 +50,15 @@
                             <option value="10">10</option>
                             <option value="11">11</option>
                             <option value="12">12</option>
+                        </select>
+
+                        <select class="form-select form-select-md" aria-label=".form-select-sm example">
+                            <option selected>Selectionner une heure</option>
+                            <option value="1">19h</option>
+                            <option value="2">19h30</option>
+                            <option value="3">20h</option>
+                            <option value="3">20h30</option>
+                            <option value="3">21h</option>
                         </select>
 
                         <input class="input-group-text" type="date" id="start" name="trip-start"
