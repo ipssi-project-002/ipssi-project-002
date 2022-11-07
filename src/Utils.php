@@ -30,6 +30,10 @@ class Utils {
     public static function formatDate(\DateTime $date, string $format = self::DATETIME) {
         return $date->setTimezone(new \DateTimeZone(DISPLAY_TIMEZONE))->format($format);
     }
+
+    public static function formatPrice(float $price) {
+        return number_format($price, 2, ',', ' ') . ' €';
+    }
 }
 
 ?>

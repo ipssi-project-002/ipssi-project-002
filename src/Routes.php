@@ -12,6 +12,14 @@ $routes = [
     [
         '_GET' => [
             'page' => 'dish',
+            'action' => 'index'
+        ],
+        'controller' => \App\Controller\DishController::class,
+        'method' => 'index'
+    ],
+    [
+        '_GET' => [
+            'page' => 'dish',
             'action' => 'view',
             'ref' => '/.*/'
         ],
@@ -51,7 +59,15 @@ $routes = [
         ],
         'controller' => \App\Controller\UserController::class,
         'method' => 'index'
-    ],  
+    ],
+    [
+        '_GET' => [
+            'page' => 'user',
+            'action' => 'logout'
+        ],
+        'controller' => \App\Controller\UserController::class,
+        'method' => 'logout'
+    ],
     [
         '_GET' => [
             'page' => 'user',

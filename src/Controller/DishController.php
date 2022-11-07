@@ -5,10 +5,15 @@ namespace App\Controller;
 use App\Model\DishModel;
 
 class DishController extends DefaultController {
-    private DishModel $model;
+    protected $model;
 
     public function __construct() {
         $this->model = new DishModel();
+    }
+
+    public function index(): void {
+        $dishes = $this->model->find();
+        $this->render('Dish/index', [ 'dishes' => $dishes ]);
     }
 
     public function view(array $params) {

@@ -34,6 +34,13 @@ class UserController extends DefaultController {
         */
     }
 
+    public function logout(): void {
+        if (isset($_SESSION['session'])) {
+            $_SESSION['session']->destroy();
+            unset($_SESSION['session']);
+        }
+    }
+
     public function login(): void {
         $users = $this->model->find();
         $this->render('User/signIn');
