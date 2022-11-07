@@ -11,6 +11,14 @@ $routes = [
     ],
     [
         '_GET' => [
+            'page' => 'cart',
+            'action' => 'view'
+        ],
+        'controller' => \App\Controller\CartController::class,
+        'method' => 'view'
+    ],
+    [
+        '_GET' => [
             'page' => 'booking',
             'action' => 'createSubmit'
         ],
@@ -107,6 +115,14 @@ $routes = [
         ],
         'controller' => \App\Controller\UserController::class,
         'method' => 'test'
+    ],
+    [
+        '_GET' => [
+            'page' => 'contact',
+            'action' => 'create'
+        ],
+        'controller' => \App\Controller\ContactController::class,
+        'method' => 'create'
     ],
     // homepage
     [

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr-FR">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,10 +12,8 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/icon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/icon-16x16.png">
     <link rel="stylesheet" type="text/css" href="./assets/bootstrap_5.2.2/bootstrap.min.css" />
-    <!-- <link rel="stylesheet" type="text/css" href="./assets/css/base/layout.css" /> -->
     <link rel="stylesheet" type="text/css" href="./assets/css/styles.css" />
 </head>
-
 <body>
     <header class="mb-auto">
         <div>
@@ -24,17 +21,19 @@
                 <a class="nav-link fw-bold py-4 px-2" href="?page=order&action=create">Commander</a> <!-- active" aria-current="page" -->
                 <a class="nav-link fw-bold py-4 px-2" href="?page=booking&action=create">Réserver une table</a>
                 <a class="nav-link fw-bold py-4 px-2" href="?page=contact&action=create">Contact</a>
+                <a class="nav-link fw-bold py-4 px-2" href=""><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                    </svg></a>
                 <?php if ($_SESSION['session']->isLoggedIn()) {
                     $user = $_SESSION['session']->getUser();
                     ?>
-                <a class="nav-link fw-bold py-4 px-2" href="?page=user&action=logout"><?= $_SESSION['session']->getUser()->get ?> 
+                <a class="nav-link fw-bold py-4 px-2" href="?page=user&action=logout"><?= "{$user->getFirstName()} {$user->getLastName()}" ?> 
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
                     <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
                     </svg>
                 </a>
-                <?php } 
-                    else { 
+                <?php } else { 
                 ?>
                 <a class="nav-link fw-bold py-4 px-2" href="?page=user&action=login"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
                         <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
@@ -47,7 +46,6 @@
     <main><?= $content ?></main>
     <footer></footer>
     <script defer type="text/javascript" src="./assets/bootstrap_5.2.2/bootstrap.min.js"></script>
-    <script defer type="text/javascript" src="/assets/js/base/layout.js"></script>
+    <script defer type="text/javascript" src="./assets/js/script.js"></script>
 </body>
-
 </html>

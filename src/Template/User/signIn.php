@@ -1,5 +1,5 @@
 <div class="d-flex justify-content-center">
-<form method="post" action="?page=user&action=loginSubmit">
+<form id="login-form" method="post" action="?page=user&action=loginSubmit">
   <div class="mb-3 mt-5">
     <label for="login" class="form-label">Adresse email ou pseudo</label>
     <input type="text" class="form-control" name="login" id="login" aria-describedby="loginHelp">

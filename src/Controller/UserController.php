@@ -38,6 +38,9 @@ class UserController extends DefaultController {
         if (isset($_SESSION['session'])) {
             $_SESSION['session']->destroy();
             unset($_SESSION['session']);
+            Utils::redirect('', [
+                'page' => 'home'
+            ]);
         }
     }
 

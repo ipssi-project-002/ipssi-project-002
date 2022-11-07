@@ -2,10 +2,8 @@
 
 namespace App\Controller;
 
-/*
 use App\Entity\Booking;
 use App\Model\BookingModel;
- */
 use App\Controller\ErrorController;
 
 class BookingController extends DefaultController {
@@ -34,12 +32,23 @@ class BookingController extends DefaultController {
     }
 
     public function createSubmit(): void {
+        if ($_SESSION['session']->isLoggedIn()) {
+            $user_id = $_SESSION['session']->getUser()->getId();
+        } else {
+            $user_data = [
+                ''
+            ];
+        }
+        $data = [
+        ];
         $first_name = $_POST['first-name'];
         $last_name = $_POST['last-name'];
         $email_address = $_POST['email-address'];
         $phone_number = $_POST['phone-number'];
         $number_of_guests = $_POST['number-of-guests'];
-        $arrival_date = $_POST['arrival-date'];
+        $arrival_date = $_POST['arrival-datetime'];
+
+        $booking = new Booking();
     }
 }
 

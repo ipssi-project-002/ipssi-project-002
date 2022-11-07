@@ -3,10 +3,10 @@
     <main class="px-3">
       <img class="img-fluid" src="./assets/img/logo.png" alt="Le Dragon Paresseux" width="200">
       <h1>Le Dragon Paresseux</h1>
-      <p class="lead">Découvrez nos plats élaborés avec le plus grand soin par nos dragons. Sur place ou à emporter, vos plats sont prêts en moins d'1h.</p>
+      <p class="lead">Découvrez nos plats élaborés avec le plus grand soin par nos dragons. Sur place ou à emporter, vos plats sont prêts en moins de 2h.</p>
       <p class="lead">
         <a href="#order" class="btn btn-lg btn-secondary fw-bold border-white bg-white m-1">Commander</a>
-        <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white m-1">Réserver une table</a>
+        <a href="?page=booking&action=create" class="btn btn-lg btn-secondary fw-bold border-white bg-white m-1">Réserver une table</a>
       </p>
     </main>
   </div>
@@ -32,6 +32,7 @@
             <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Photo non disponible</text></svg> -->
             <div class="card-body d-flex flex-column align-items-stretch justify-content-between">
               <p class="card-text"><?= $dish->getName() ?></p>
+              <p class="card-text" style="font-size : 12px"><?= $dish->getDescription() ?></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary">Ajouter au panier</button>
